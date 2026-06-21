@@ -6,3 +6,4 @@ class UserNumber(BaseModel):
     phone_number: int
     country_number: int
     ddd: int
+    active: bool
