@@ -5,4 +5,8 @@ app = FastAPI()
 
 @app.get("/send_default_message")
 def send_default_message():
-    ...
+    try:
+        MessageMenager().send_default_messages()
+    except Exception:
+        return 500
+    return 200
