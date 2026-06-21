@@ -48,5 +48,5 @@ class SupabaseConnector:
 
 if __name__ == "__main__":
     db = SupabaseConnector()
-    rows = db.select("user_number", limit=10)
+    rows = db.select("user_number")
     print(rows)
