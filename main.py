@@ -1,17 +1,8 @@
 from fastapi import FastAPI
+from src.message_manager.message_manager import MessageMenager
 
 app = FastAPI()
 
-
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
-
-@app.post("/add_user_number")
-def add_user_number():
-    ...
-
-@app.post("/send_default_message")
+@app.get("/send_default_message")
 def send_default_message():
     ...
