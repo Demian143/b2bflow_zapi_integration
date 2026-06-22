@@ -12,7 +12,8 @@ class MessageManager:
     def send_default_messages(self):
         # Ler a lista de usuarios em user_number
         numbers_list: list[UserNumber] = self.db_connection.select('user_number', 
-                                                                   filters={'active': True})
+                                                                   filters={'active': True},
+                                                                   limit=3)
         for data in numbers_list:
             try:
                 user = UserNumber.model_validate(data)
