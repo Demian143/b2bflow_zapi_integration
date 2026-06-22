@@ -1,4 +1,5 @@
-from fastapi import FastAPI, JSONResponse, HTTPException, status
+from fastapi import FastAPI, HTTPException, status
+from fastapi.responses import JSONResponse
 from src.message_manager.message_manager import MessageManager
 import logging
 import os
