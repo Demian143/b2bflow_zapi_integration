@@ -15,4 +15,6 @@ COPY . /code/app
 
 RUN pip install fastapi[standard]
 
+EXPOSE 80
+
 CMD ["fastapi", "run", "app/main.py", "--port", "80"]
