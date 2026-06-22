@@ -1,0 +1,18 @@
+FROM python:3.14
+
+WORKDIR /code
+
+RUN apt-get update && apt-get install -y \
+    gcc \
+    pkg-config \
+    libdbus-1-dev
+
+COPY ./requirements.txt /code/requirements.txt
+
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+
+COPY . /code/app
+
+RUN pip install fastapi[standard]
+
+CMD ["fastapi", "run", "app/main.py", "--port", "80"]
