@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, JSONResponse, HTTPException, status
 from src.message_manager.message_manager import MessageManager
 import logging
 import os
@@ -15,5 +15,7 @@ def send_default_message():
         MessageManager().send_default_messages()
     except Exception as e:
         logging.error(f'Excessão ocorrida na rota send_default_message {e}')
-        return 500
-    return 200
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, 
+                            detail="Erro ao enviar mensagem padrão")
+    return JSONResponse(status_code=status.HTTP_200_OK,
+                        content={"message": "Mensagem padrão enviada com sucesso!"})

@@ -33,5 +33,6 @@ class ZAPIConnector:
                     "Client-Token": self.zapi_client_token,
                     "Content-Type": "application/json"
                 }
-        response = requests.post(self.endpoint + "/send-text", json=payload, headers=headers)
+        response = requests.post(self.endpoint + "/send-text", json=payload, headers=headers, timeout=30)
+        response.raise_for_status()
         logging.info(f'Status de envio da mensagem padrão: {response.status_code}, {response.text}')
