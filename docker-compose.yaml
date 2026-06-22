@@ -4,4 +4,6 @@ services:
     ports:
       - "8000:80"
     volumes:
-      - .:/code/app
+      - ./src:/code/src
+      - ./main.py:/code/main.py
+      - ./logs:/logs
