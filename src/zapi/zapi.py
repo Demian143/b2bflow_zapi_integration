@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 import requests
 import os
+import logging
 
 load_dotenv()
 
@@ -33,5 +34,4 @@ class ZAPIConnector:
                     "Content-Type": "application/json"
                 }
         response = requests.post(self.endpoint + "/send-text", json=payload, headers=headers)
-        print(response.status_code)
-        print(response.text)
+        logging.info(f'Status de envio da mensagem padrão: {response.status_code}, {response.text}')
