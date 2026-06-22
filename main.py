@@ -1,8 +1,11 @@
 from fastapi import FastAPI
 from src.message_manager.message_manager import MessageManager
 import logging
+import os
 
-logging.basicConfig(filename='exemplo.log', encoding='utf-8', level=logging.INFO)
+os.makedirs("/logs", exist_ok=True)
+logging.basicConfig(filename='/logs/exemplo.log', encoding='utf-8', level=logging.INFO)
+
 app = FastAPI()
 
 @app.get("/send_default_message")
