@@ -44,21 +44,8 @@ create table public.user_number (
 ### Build
 
 ```bash
-docker build -t b2bflow .
+docker compose up --build
 ```
-
-### Run
-
-```bash
-docker run -p 80:80 b2bflow
-```
-
-### Run com volume de logs
-
-```bash
-docker run -p 80:80 -v $(pwd)/logs:/logs b2bflow
-```
-
 ---
 
 ## Disparando mensagens
@@ -66,7 +53,7 @@ docker run -p 80:80 -v $(pwd)/logs:/logs b2bflow
 Com o serviço rodando, chame o endpoint de envio:
 
 ```bash
-curl --location 'http://localhost:80/send_default_message'
+curl --location 'http://localhost:8000/send_default_message'
 ```
 
 ---
